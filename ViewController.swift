@@ -12,12 +12,16 @@ import Foundation
 class ViewController: UIViewController {
     
     @IBOutlet weak var timePicker: UIPickerView!
+    @IBOutlet weak var timeLabel: UILabel!
     
     var hours: Int = 0
     var minutes: Int = 0
     var seconds: Int = 0
     var totalSeconds = 0
     var timer = Timer()
+//    var h = 0
+//    var m = 0
+//    var s = 0
     
     let hrs = 3600
     let min = 3600 / 60
@@ -28,6 +32,7 @@ class ViewController: UIViewController {
         
         timePicker.delegate = self
         timePicker.dataSource = self
+        updateUI()
         // Do any additional setup after loading the view.
     }
     //MARK: - Start Button
@@ -36,13 +41,11 @@ class ViewController: UIViewController {
         totalSeconds = (hours * hrs) + (minutes * min) + (seconds + 3600) % sec
         
         
-        let (h,m,s) = changingSecondsToString(seconds: totalSeconds)
-        print(("\(h)Hr\(m)Min\(s)Sec"))
+        //print(timeString(time: TimeInterval(totalSeconds)))
         
         
-          
         
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(countDownMethod), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateUI), userInfo: nil, repeats: true)
         
         
     }
@@ -95,25 +98,30 @@ extension ViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         }
     }
     //MARK: - DataModel
-    //take the hours and divide them and THEN do the count down method without the total sec method 
+    //take the hours and divide them and THEN do the count down method without the total sec method
     func changingSecondsToString (seconds : Int) -> (Int, Int, Int) {
         return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
-    @objc func countDownMethod(){
-        if totalSeconds != 0 {
-            totalSeconds -= 1
+    @objc func updateUI(){
+    
+        
+        if totalSeconds != -1 {
+            timeLabel.text = convertingSecondsToCountDown(time: TimeInterval(totalSeconds))
+             totalSeconds -= 1
             print(totalSeconds)
-        } else if totalSeconds == 0 {
-            timer.invalidate()
         } else {
             timer.invalidate()
             print("Error")
         }
         
     }
+    func convertingSecondsToCountDown(time: TimeInterval) -> String {
+        let h = Int(time) / 3600
+        let m = Int(time) / 60 % 60
+        let s = Int(time) % 60
+        return String(format: "%02i:%02i:%02i", h,m,s)
+    }
     
 }
-
-
 
