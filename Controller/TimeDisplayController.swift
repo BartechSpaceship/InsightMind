@@ -27,14 +27,15 @@ class TimeDisplayController: UIViewController {
     var seconds: Int = 0
     
     
+   
+    
     
     override func viewDidLoad(){
         super.viewDidLoad()
-        
         finalSeconds = (hours * hrs) + (minutes * min) + (seconds + 3600) % sec
-        
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateUI), userInfo: nil, repeats: true)
-      
+               
+               timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateUI), userInfo: nil, repeats: true)
+
     }
     
     

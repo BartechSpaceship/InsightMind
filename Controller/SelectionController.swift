@@ -9,7 +9,12 @@
 import Foundation
 import UIKit
 
-class SelectionController: UIViewController {
+class SelectionController: UIViewController, UIScrollViewDelegate {
+    
+
+    @IBOutlet weak var bellImages: UIStackView!
+    
+    @IBOutlet weak var horizontalStack: UIStackView!
     
     
     var hours: Int = 0
@@ -17,11 +22,9 @@ class SelectionController: UIViewController {
     var seconds: Int = 0
 
     
-    
-    @IBOutlet weak var timeLabelTest: UILabel!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         
     }

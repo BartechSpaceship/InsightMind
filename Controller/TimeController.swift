@@ -73,6 +73,9 @@ extension TimeController: UIPickerViewDelegate, UIPickerViewDataSource {
             return 0
         }
     }
+
+   
+
     //Width
     func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
         return pickerView.frame.size.width/5
@@ -106,6 +109,13 @@ extension TimeController: UIPickerViewDelegate, UIPickerViewDataSource {
         }
         
     }
+    //MARK: - Changes PickerView Color
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+
+        let string = "\(row) h"
+
+        return NSAttributedString(string: string, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+       }
 }
 
 
