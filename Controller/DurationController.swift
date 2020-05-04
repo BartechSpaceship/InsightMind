@@ -11,15 +11,25 @@ import UIKit
 import Foundation
 import AVFoundation
 
+protocol TimeManagerDelegate {
+    func didUpdateTimer(hoursDelegate: Int, minutesDelegate: Int, secondsDelegate: Int)
+}
 
-class TimeController: UIViewController{
+class DurationController: UIViewController{
     
     @IBOutlet weak var timePicker: UIPickerView!
 
+    var timeManagerDelegate: TimeManagerDelegate?
+    
     //Used for the UIPickerView
     var hours: Int = 0
     var minutes: Int = 0
     var seconds: Int = 0
+    
+    let hrs = 3600
+    let min = 3600 / 60
+    let sec = 60
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,37 +38,49 @@ class TimeController: UIViewController{
         timePicker.dataSource = self
         
         
-        
     }
-    //MARK: - Segue
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        if segue.identifier == "saveSegue" {
-            let destinationSC = segue.destination as! SelectionController
-            destinationSC.hours = hours
-            destinationSC.minutes = minutes
-            destinationSC.seconds = seconds
-            
-            
-            
-        }
-    }
+//    //MARK: - Segue
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+//        if segue.identifier == "saveSegue" {
+//            let destinationSC = segue.destination as! MainScreenController
+//            destinationSC.hours = hours
+//            destinationSC.minutes = minutes
+//            destinationSC.seconds = seconds
+//
+//
+//
+//        }
+//    }
     //MARK: - Navigation Bar Buttons
-    @IBAction func cancelBarButton(_ sender: UIBarButtonItem) {
-        
-        print("cancel")
-        self.dismiss(animated: true, completion: nil)
-        
+
+    @IBAction func saveBarButton(_ sender: UIBarButtonItem) {
+        if(hours != 0 || minutes != 0 || seconds != 0){
+        timeManagerDelegate?.didUpdateTimer(hoursDelegate: hours, minutesDelegate: minutes, secondsDelegate: seconds)
+        } else {
+            print("fail")
+        }
+        dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func saveBarButton(_ sender: UIBarButtonItem) {
-        self.performSegue(withIdentifier: "saveSegue", sender: self)
+    @IBAction func cancelBarButton(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
     }
+    
+   
     
 }
+func convertingSecondsToCountDown(time: TimeInterval) -> String {
+    let h = Int(time) / 3600
+    let m = Int(time) / 60 % 60
+    let s = Int(time) % 60
+    return String(format: "%02i:%02i:%02i", h,m,s )
+}
+
+    
 
 
 //MARK: - PickerViewDelegate & DataSource
-extension TimeController: UIPickerViewDelegate, UIPickerViewDataSource {
+extension DurationController: UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 3
     }
@@ -112,7 +134,7 @@ extension TimeController: UIPickerViewDelegate, UIPickerViewDataSource {
     //MARK: - Changes PickerView Color
     func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
 
-        let string = "\(row) h"
+        let string = "\(row) "
 
         return NSAttributedString(string: string, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
        }

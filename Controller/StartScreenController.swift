@@ -4,16 +4,24 @@
 //
 //  Created by Bartek on 4/9/20.
 //  Copyright © 2020 Bartek. All rights reserved.
-//
+//Note to self later , try seeing if you can push data back modally and use protocol to get the time instead of doing what yo udid last tine w
 
 import UIKit
 import Foundation
 import AVFoundation
 
-class TimeDisplayController: UIViewController {
+
+
+class StartScreenController: UIViewController {
+    
+    
+    
+    
     
     
     @IBOutlet weak var timeLabel: UILabel!
+    
+    
     
     var finalSeconds = 0
     var timer = Timer()
@@ -37,6 +45,7 @@ class TimeDisplayController: UIViewController {
                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateUI), userInfo: nil, repeats: true)
 
     }
+   
     
     
     @IBAction func finishButton(_ sender: UIButton) {
