@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import AVFoundation
 
 class MainScreenController: UIViewController {
     
@@ -20,6 +21,7 @@ class MainScreenController: UIViewController {
     var minutes: Int = 0
     var seconds: Int = 0
     
+    var soundChosenFromEndingBellController = ""
     
     
     
@@ -54,7 +56,8 @@ class MainScreenController: UIViewController {
         durationVC.timeManagerDelegate = self
         durationVC.modalPresentationStyle = .fullScreen
         self.present(durationVC, animated: true, completion: nil)
-        print("Select Duration")
+       
+        
     }
     
     @IBAction func endingBellButton(_ sender: UIButton) {
@@ -74,11 +77,13 @@ class MainScreenController: UIViewController {
     
     
     
-//MARK: - Start
+//MARK: - StartScreenController Modal Segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "beginSegue" {
             let destinationTDC = segue.destination as! StartScreenController
 
+           
+            destinationTDC.chosenSoundForEndingOfBell = soundChosenFromEndingBellController
             destinationTDC.hours = hours
             destinationTDC.minutes = minutes
             destinationTDC.seconds = seconds
@@ -101,8 +106,9 @@ extension MainScreenController: TimeManagerDelegate {
 }
 
 extension MainScreenController: EndingBellSoundSelection {
-    func didSelectEndingBell(soundNamePlayer: String) {
-        endingBellAssistingLabel.text = soundNamePlayer
+    func didSelectEndingBell(soundNamePlayer: String, soundNameLabel: String) {
+        endingBellAssistingLabel.text = soundNameLabel
+        soundChosenFromEndingBellController = soundNamePlayer
     }
     
     

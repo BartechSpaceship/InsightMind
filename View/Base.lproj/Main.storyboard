@@ -20,7 +20,7 @@
                                 <rect key="frame" x="47" y="416" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="  Interval bells">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -33,7 +33,7 @@
                                 <rect key="frame" x="47" y="488" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="  Ambient Sounds">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -46,7 +46,7 @@
                                 <rect key="frame" x="47" y="557" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="  Ending bell">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -62,7 +62,7 @@
                                 <rect key="frame" x="47" y="344" width="320" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.22352941176470587" green="0.22352941176470587" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="  Duration">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -101,6 +101,34 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ending Bell Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXv-Db-wUL">
                                 <rect key="frame" x="229" y="570" width="121" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oT4-v8-b6B">
+                                <rect key="frame" x="56" y="356" width="59" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Interval Bells" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rah-3T-8cs">
+                                <rect key="frame" x="56" y="428" width="88" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ambient Sounds" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Trm-rE-b1d">
+                                <rect key="frame" x="56" y="500" width="113" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ending Bell" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4R7-ry-Le3">
+                                <rect key="frame" x="56" y="570" width="77" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -153,7 +181,7 @@
                                                 <action selector="cancelBarButton:" destination="BYZ-38-t0r" id="k77-ng-TSn"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5TY-ut-X3S">
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="5TY-ut-X3S">
                                             <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="saveBarButton:" destination="BYZ-38-t0r" id="HoR-a3-6ED"/>
@@ -198,7 +226,7 @@
                                 <color key="tintColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1oa-6d-waH">
-                                <rect key="frame" x="20" y="205" width="374" height="240"/>
+                                <rect key="frame" x="0.0" y="328" width="414" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="k76-Mh-ewl">
@@ -209,39 +237,52 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="0lC-yV-QX8" customClass="CollectionViewCell" customModule="InsightMind" customModuleProvider="target">
-                                        <rect key="frame" x="5.5" y="0.0" width="363" height="231"/>
+                                        <rect key="frame" x="25.5" y="0.0" width="363" height="231"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="5Oh-re-JYY">
                                             <rect key="frame" x="0.0" y="0.0" width="363" height="231"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="MWp-d2-ODY">
-                                                    <rect key="frame" x="57" y="11" width="208" height="208"/>
+                                                    <rect key="frame" x="78" y="11" width="208" height="208"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <gestureRecognizers/>
                                                 </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BASU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0zg-3e-DeD">
+                                                    <rect key="frame" x="159" y="105" width="45" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                         </collectionViewCellContentView>
                                         <size key="customSize" width="363" height="231"/>
                                         <connections>
-                                            <outlet property="imageBell" destination="MWp-d2-ODY" id="KBc-Bf-t51"/>
+                                            <outlet property="bellNameDisplay" destination="0zg-3e-DeD" id="S9B-JU-kEm"/>
+                                            <outlet property="imageBell" destination="MWp-d2-ODY" id="9AI-bf-b00"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="my8-xO-Wcp">
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="my8-xO-Wcp">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="barTintColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Ending Bell" id="eBz-yw-9Al">
+                                        <barButtonItem key="backBarButtonItem" title="Back" id="9e6-PI-1RI"/>
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="wxe-e0-Tup">
                                             <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="cancelBarButton:" destination="xx7-E0-Yfr" id="N0L-ci-L5K"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="xvU-mD-U9K">
+                                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="xvU-mD-U9K">
                                             <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <connections>
                                                 <action selector="saveBarButton:" destination="xx7-E0-Yfr" id="VrV-RX-d5k"/>
@@ -250,6 +291,39 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQm-oQ-OSB">
+                                <rect key="frame" x="168" y="558.5" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="1" backgroundImage="circle" catalog="system"/>
+                                <connections>
+                                    <action selector="repeatBellButton:" destination="xx7-E0-Yfr" eventType="touchUpInside" id="txf-Jx-Pzo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S35-YW-SBb">
+                                <rect key="frame" x="197" y="558.5" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="2" backgroundImage="circle" catalog="system"/>
+                                <connections>
+                                    <action selector="repeatBellButton:" destination="xx7-E0-Yfr" eventType="touchUpInside" id="fEd-7G-NlL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xe-kV-118">
+                                <rect key="frame" x="227" y="558.5" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="3" backgroundImage="circle" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17" weight="regular"/>
+                                </state>
+                                <connections>
+                                    <action selector="repeatBellButton:" destination="xx7-E0-Yfr" eventType="touchUpInside" id="zU6-V4-WnL"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="yIg-dL-EbR"/>
@@ -260,7 +334,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4lt-St-huf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470" y="686"/>
+            <point key="canvasLocation" x="469.56521739130437" y="685.71428571428567"/>
         </scene>
         <!--Start Screen Controller-->
         <scene sceneID="anR-pe-fae">
@@ -330,6 +404,7 @@
     </scenes>
     <resources>
         <image name="0" width="208" height="208"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
         <image name="doc.fill" catalog="system" width="115" height="128"/>
     </resources>

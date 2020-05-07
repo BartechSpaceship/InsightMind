@@ -33,8 +33,8 @@ class StartScreenController: UIViewController {
     var hours: Int = 0
     var minutes: Int = 0
     var seconds: Int = 0
-    
-    
+    var audioPlayer = AVAudioPlayer()
+    var chosenSoundForEndingOfBell = ""
    
     
     
@@ -68,31 +68,20 @@ class StartScreenController: UIViewController {
             finalSeconds -= 1
             print(finalSeconds)
         } else {
-            playSound()
+            playSound(soundName: chosenSoundForEndingOfBell)
             timer.invalidate()
             print("Done")
         }
         
     }
     
-}
-//MARK: - Music
+
 var player: AVAudioPlayer!
 
- func playSound() {
-     guard let url = Bundle.main.url(forResource: "C", withExtension: "wav") else { return }
+func playSound(soundName: String) {
+    let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
+     player = try! AVAudioPlayer(contentsOf: url!)
+    player.play()
+}
 
-     do {
-         try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-         try AVAudioSession.sharedInstance().setActive(true)
-
-         player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.wav.rawValue)
-         guard let player = player else { return }
-
-         player.play()
-
-     } catch let error {
-         print(error.localizedDescription)
-
-     }
- }
+}
