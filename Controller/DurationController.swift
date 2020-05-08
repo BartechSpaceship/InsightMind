@@ -39,18 +39,6 @@ class DurationController: UIViewController{
         
         
     }
-//    //MARK: - Segue
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-//        if segue.identifier == "saveSegue" {
-//            let destinationSC = segue.destination as! MainScreenController
-//            destinationSC.hours = hours
-//            destinationSC.minutes = minutes
-//            destinationSC.seconds = seconds
-//
-//
-//
-//        }
-//    }
     //MARK: - Navigation Bar Buttons
 
     @IBAction func saveBarButton(_ sender: UIBarButtonItem) {

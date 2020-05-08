@@ -22,8 +22,12 @@ class EndingBellController: UIViewController {
     
    
    
-    
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    @IBOutlet weak var repeatBellButtonThree: UIButton!
+    @IBOutlet weak var repeatBellButtonTwo: UIButton!
+    @IBOutlet weak var repeatBellButtonOne: UIButton!
+    
     
     var imageArray: [UIImage] = [
              UIImage(named: "0")!,
@@ -37,6 +41,17 @@ class EndingBellController: UIViewController {
              UIImage(named: "8")!
              
          ]
+    var imageArrayBellNames: [String] = [
+        "Basu",
+        "monkey",
+        "water",
+        "bell",
+        "Shek wes",
+        "Kanye Wes",
+        "Sponge",
+        "Bob",
+        "mike"
+    ]
        
     
     var behavior = MSCollectionViewPeekingBehavior()
@@ -64,24 +79,56 @@ class EndingBellController: UIViewController {
         //Protocol to move data back to MainScreen
         //Had to change chosenSoundLabel as! string because of failure of stopping sound on cancel and save button
         endingBellSoundDelegate?.didSelectEndingBell(soundNamePlayer: chosenSound,soundNameLabel: chosenSoundLabel as! String)
-        if chosenSoundLabel == nil {
+        
             player.stop()
-        }
         
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelBarButton(_ sender: UIBarButtonItem) {
         
-        if chosenSoundLabel == nil {
-            player.stop()
-        }
+        player.stop()//Will fail right now
         dismiss(animated: true, completion: nil)
         
     }
     
     @IBAction func repeatBellButton(_ sender: UIButton) {
-        //all 3 buttons will be connected to this, when clicked on it will be highlighted and the circle will appear around them
+        
+        let circle = UIImage(systemName: "circle")
+        
+        updateBellButton()
+        sender.isSelected = true
+        sender.alpha = 1.0
+        sender.setBackgroundImage(circle, for: UIControl.State.normal)
+
+            switch sender.currentTitle {
+        case "1":
+            player.numberOfLoops = 1
+        case "2":
+            player.numberOfLoops = 2
+        case "3":
+            player.numberOfLoops = 3
+        default:
+            //player.numberOfLoops = 1
+            print("Player.NumberOfLoops Failed ")
+          
+        }
+        
+    }
+    func updateBellButton() {
+       
+        repeatBellButtonOne.isSelected = false
+        repeatBellButtonOne.alpha = 0.3
+        repeatBellButtonOne.setBackgroundImage(nil, for: UIControl.State.normal)
+       
+        repeatBellButtonTwo.isSelected = false
+        repeatBellButtonTwo.alpha = 0.3
+        repeatBellButtonTwo.setBackgroundImage(nil, for: UIControl.State.normal)
+      
+        repeatBellButtonThree.isSelected = false
+        repeatBellButtonThree.alpha = 0.3
+        repeatBellButtonThree.setBackgroundImage(nil, for: UIControl.State.normal)
+        
     }
     
 }
@@ -95,12 +142,15 @@ extension EndingBellController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageArray.count
     }
-    
+    //Assigns Images and Lable names to the bells
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         
         let images = imageArray[indexPath.row]
         cell.imageBell.image = images
+        
+        let imageNames = imageArrayBellNames[indexPath.row]
+        cell.bellNameDisplay.text = imageNames
         
         return cell
     }
@@ -146,19 +196,23 @@ extension EndingBellController: UICollectionViewDataSource {
         default:
             playSound(soundName: "0")
         }
-    
-       
+//
+//        if chosenSound != nil {
+//            player.numberOfLoops = 1
+//        } else if repeatBellButtonTwo != nil {
+//            player.numberOfLoops = 2
+//        } else if repeatBellButtonThree != nil {
+//            player.numberOfLoops = 3
+//        }
     
     
     }
-    
-    //Plays sound when item is tapped, Will have to add PageDidEndDecelerating
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //    endingBellSoundDelegate?.didSelectEndingBell(soundNamePlayer: String(indexPath.row))
         
         chosenSound = String(indexPath.row)
          playSound(soundName: chosenSound)
-               print(chosenSound)
+         print(chosenSound)
+        
         switch chosenSound {
                case "0":
                   chosenSoundLabel = "BASU"
@@ -190,15 +244,9 @@ extension EndingBellController: UICollectionViewDataSource {
                default:
                    playSound(soundName: "0")
                }
-           
-        
-                
-       
-        
        }
     
 }
-
 
 extension EndingBellController: UICollectionViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
@@ -206,6 +254,7 @@ extension EndingBellController: UICollectionViewDelegate {
        
     }
 }
+//Music is created here
 var player: AVAudioPlayer!
 
 func playSound(soundName: String) {
