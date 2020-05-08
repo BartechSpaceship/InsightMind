@@ -16,18 +16,14 @@ protocol EndingBellSoundSelection {
 
 class EndingBellController: UIViewController {
    
-    
-    var endingBellSoundDelegate: EndingBellSoundSelection?
-    var indexPathNoDecimal = 0
-    
-   
-   
     @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var repeatBellButtonThree: UIButton!
     @IBOutlet weak var repeatBellButtonTwo: UIButton!
     @IBOutlet weak var repeatBellButtonOne: UIButton!
     
+    var endingBellSoundDelegate: EndingBellSoundSelection?
+    var indexPathNoDecimal = 0
     
     var imageArray: [UIImage] = [
              UIImage(named: "0")!,
@@ -55,7 +51,7 @@ class EndingBellController: UIViewController {
        
     
     var behavior = MSCollectionViewPeekingBehavior()
-  //  var audioPlayer = AVAudioPlayer()
+  
     var chosenSound = ""
     var chosenSoundLabel: Any? = ""
     override func viewDidLoad() {
