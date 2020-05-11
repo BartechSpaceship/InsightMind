@@ -1,29 +1,35 @@
 //
-//  EndingBellController.swift
+//  IntervalPickerController.swift
 //  InsightMind
 //
-//  Created by Bartek on 4/29/20.
+//  Created by Bartek on 5/11/20.
 //  Copyright © 2020 Bartek. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import MSPeekCollectionViewDelegateImplementation
-import AVFoundation
 
-protocol EndingBellSoundSelection {
-    func didSelectEndingBell(soundNamePlayer: String, soundNameLabel: String)
-}
-
-class EndingBellController: UIViewController {
-   
+class IntervalPickerController: UIViewController {
+    
+    
+    
+    @IBOutlet weak var repeatBellButtonOne: UIButton!
+    @IBOutlet weak var repeatBellButtonTwo: UIButton!
+    @IBOutlet weak var repeatBellButtonThree: UIButton!
+    @IBOutlet weak var pickerController: UIPickerView!
     @IBOutlet weak var collectionView: UICollectionView!
     
-    @IBOutlet weak var repeatBellButtonThree: UIButton!
-    @IBOutlet weak var repeatBellButtonTwo: UIButton!
-    @IBOutlet weak var repeatBellButtonOne: UIButton!
+    var hours: Int = 0
+    var minutes: Int = 0
+    var seconds: Int = 0
     
-    var endingBellSoundDelegate: EndingBellSoundSelection?
-    var indexPathNoDecimal = 0
+    let hrs = 3600
+    let min = 3600 / 60
+    let sec = 60
+    
+    var chosenSound = ""
+    var chosenSoundLabel: Any? = ""
     
     var imageArray: [UIImage] = [
              UIImage(named: "0")!,
@@ -48,88 +54,74 @@ class EndingBellController: UIViewController {
         "Bob",
         "mike"
     ]
-       
-    
     var behavior = MSCollectionViewPeekingBehavior()
-  
-    var chosenSound = ""
-    var chosenSoundLabel: Any? = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        collectionView.delegate = self
-        collectionView.dataSource = self
-    //If this is changed then you have to change the center point of the app "Current Index"
-        behavior = MSCollectionViewPeekingBehavior(cellPeekWidth: 50)
-        behavior = MSCollectionViewPeekingBehavior(cellSpacing: 70)
-      
-        collectionView.configureForPeekingBehavior(behavior: behavior)
         
+        pickerController.delegate = self
+        pickerController.dataSource = self
         
-    }
-    
-
-    
-    //MARK: - Nav Bar button items
-    @IBAction func saveBarButton(_ sender: UIBarButtonItem) {
-        //Protocol to move data back to MainScreen
-        //Had to change chosenSoundLabel as! string because of failure of stopping sound on cancel and save button
-        endingBellSoundDelegate?.didSelectEndingBell(soundNamePlayer: chosenSound,soundNameLabel: chosenSoundLabel as! String)
-        
-            player.stop()
-        
-        dismiss(animated: true, completion: nil)
-    }
-    
-    @IBAction func cancelBarButton(_ sender: UIBarButtonItem) {
-        
-        player.stop()//Will fail right now
-        dismiss(animated: true, completion: nil)
+            collectionView.delegate = self
+            collectionView.dataSource = self
+        //If this is changed then you have to change the center point of the app "Current Index"
+            behavior = MSCollectionViewPeekingBehavior(cellPeekWidth: 50)
+            behavior = MSCollectionViewPeekingBehavior(cellSpacing: 70)
+          
+            collectionView.configureForPeekingBehavior(behavior: behavior)
         
     }
     
+    @IBAction func cancelButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func saveButton(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBAction func repeatBellButton(_ sender: UIButton) {
-        
         let circle = UIImage(systemName: "circle")
-        
-        updateBellButton()
-        sender.isSelected = true
-        sender.alpha = 1.0
-        sender.setBackgroundImage(circle, for: UIControl.State.normal)
+               
+               updateBellButton()
+               sender.isSelected = true
+               sender.alpha = 1.0
+               sender.setBackgroundImage(circle, for: UIControl.State.normal)
 
-            switch sender.currentTitle {
-        case "1":
-            player.numberOfLoops = 1
-        case "2":
-            player.numberOfLoops = 2
-        case "3":
-            player.numberOfLoops = 3
-        default:
-            //player.numberOfLoops = 1
-            print("Player.NumberOfLoops Failed ")
+                   switch sender.currentTitle {
+               case "1":
+                   player.numberOfLoops = 1
+               case "2":
+                   player.numberOfLoops = 2
+               case "3":
+                   player.numberOfLoops = 3
+               default:
+                   //player.numberOfLoops = 1
+                   print("Player.NumberOfLoops Failed ")
 
-        }
-        
-    }
-    func updateBellButton() {
-       
-        repeatBellButtonOne.isSelected = false
-        repeatBellButtonOne.alpha = 0.3
-        repeatBellButtonOne.setBackgroundImage(nil, for: UIControl.State.normal)
-       
-        repeatBellButtonTwo.isSelected = false
-        repeatBellButtonTwo.alpha = 0.3
-        repeatBellButtonTwo.setBackgroundImage(nil, for: UIControl.State.normal)
-      
-        repeatBellButtonThree.isSelected = false
-        repeatBellButtonThree.alpha = 0.3
-        repeatBellButtonThree.setBackgroundImage(nil, for: UIControl.State.normal)
-        
-    }
-    
+               }
+               
 }
+           func updateBellButton() {
+              
+               repeatBellButtonOne.isSelected = false
+               repeatBellButtonOne.alpha = 0.3
+               repeatBellButtonOne.setBackgroundImage(nil, for: UIControl.State.normal)
+              
+               repeatBellButtonTwo.isSelected = false
+               repeatBellButtonTwo.alpha = 0.3
+               repeatBellButtonTwo.setBackgroundImage(nil, for: UIControl.State.normal)
+             
+               repeatBellButtonThree.isSelected = false
+               repeatBellButtonThree.alpha = 0.3
+               repeatBellButtonThree.setBackgroundImage(nil, for: UIControl.State.normal)
+               
+           }
+           
+    }
 
-extension EndingBellController: UICollectionViewDataSource {
+
+
+extension IntervalPickerController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -244,24 +236,78 @@ extension EndingBellController: UICollectionViewDataSource {
     
 }
 
-extension EndingBellController: UICollectionViewDelegate {
+extension IntervalPickerController: UICollectionViewDelegate {
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         behavior.scrollViewWillEndDragging(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
        
     }
-}
-extension EndingBellController: UICollectionViewDelegateFlowLayout {
-//margin and padding between each cell
-func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 130, height: 130)
-}
-}
-//Music is created here
-var player: AVAudioPlayer!
 
-func playSound(soundName: String) {
-    let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
-    player = try! AVAudioPlayer(contentsOf: url!)
-    player.play()
+//}
+//extension EndingBellController: UICollectionViewDelegateFlowLayout {
+////margin and padding between each cell
+//func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//    return CGSize(width: 130, height: 130)
+//}
+
+}
+
+extension IntervalPickerController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    //Rows & Numbers
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch component {
+        case 0:
+            return 25
+        case 1,2:
+            return 60
+        default:
+            return 0
+        }
+    }
+
+   
+
+    //Width
+    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+        return pickerView.frame.size.width/5
+    }
+    //Title
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        switch component {
+        case 0:
+            return "\(row) h"
+        case 1:
+            return "\(row) m"
+        case 2:
+            return "\(row) s"
+        default:
+            return ""
+        }
+    }
+    //Selected row
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch component {
+        case 0:
+            hours = row
+        case 1:
+            minutes = row
+        case 2:
+            seconds = row
+        default:
+            break;
+            
+            
+        }
+        
+    }
+    //MARK: - Changes PickerView Color
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+
+        let string = "\(row) "
+
+        return NSAttributedString(string: string, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+       }
 }
 

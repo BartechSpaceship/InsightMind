@@ -80,7 +80,7 @@ extension AmbientViewController: UICollectionViewDataSource {//tells howmany cel
 extension AmbientViewController: UICollectionViewDelegateFlowLayout {
     //margin and padding between each cell
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 131, height: 131)
+        return CGSize(width: 130, height: 130)
     }
     
 }
