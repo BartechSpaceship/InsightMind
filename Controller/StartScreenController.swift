@@ -35,6 +35,7 @@ class StartScreenController: UIViewController {
     var seconds: Int = 0
     var audioPlayer = AVAudioPlayer()
     var chosenSoundForEndingOfBell = ""
+    var playTheChosenSoundForStartingBell = ""
    
     
     
@@ -42,7 +43,10 @@ class StartScreenController: UIViewController {
         super.viewDidLoad()
         finalSeconds = (hours * hrs) + (minutes * min) + (seconds + 3600) % sec
                
-               timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateUI), userInfo: nil, repeats: true)
+        //later on I can make a "Warm up" which will play the sound after it reaches 0 
+        playSound(soundName: playTheChosenSoundForStartingBell)
+        
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateUI), userInfo: nil, repeats: true)
 
     }
    

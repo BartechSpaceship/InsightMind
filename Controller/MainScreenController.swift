@@ -65,8 +65,10 @@ class MainScreenController: UIViewController{
         
         collectionViewStartingBell.delegate = self
         collectionViewStartingBell.dataSource = self
-        collectionViewStartingBell.configureForPeekingBehavior(behavior: behavior)
         
+//        behavior = MSCollectionViewPeekingBehavior(cellPeekWidth: 20)
+//        behavior = MSCollectionViewPeekingBehavior(cellSpacing: 30)
+        collectionViewStartingBell.configureForPeekingBehavior(behavior: behavior)
         }
     
     
@@ -76,11 +78,6 @@ class MainScreenController: UIViewController{
         let s = Int(time) % 60
         return String(format: "%02i:%02i:%02i", h,m,s )
     }
-
-    @IBAction func startButton(_ sender: Any) {
-    print("Moving to TDC")
-
-    }
     
     @IBAction func repeatBellButtonStarting(_ sender: UIButton) {
         let circle = UIImage(systemName: "circle")
@@ -89,19 +86,19 @@ class MainScreenController: UIViewController{
         sender.isSelected = true
         sender.alpha = 1.0
         sender.setBackgroundImage(circle, for: UIControl.State.normal)
-//        
-//        switch sender.currentTitle {
-//        case "1":
-//            playerStartingBell.numberOfLoops = 1
-//        case "2":
-//            playerStartingBell.numberOfLoops = 2
-//        case "3":
-//            playerStartingBell.numberOfLoops = 3
-//        default:
-//            //player.numberOfLoops = 1
-//            print("Player.NumberOfLoops Failed ")
-//            
-//        }
+
+        switch sender.currentTitle {
+        case "1":
+            player.numberOfLoops = 1
+        case "2":
+            player.numberOfLoops = 2
+        case "3":
+            player.numberOfLoops = 3
+        default:
+            //player.numberOfLoops = 1
+            print("Player.NumberOfLoops Failed ")
+ 
+        }
     }
     func updateBellButton() {
        
@@ -119,7 +116,28 @@ class MainScreenController: UIViewController{
         
     }
     
+    @IBAction func startButton(_ sender: Any) {
+    print("Moving to TDC")
+        player.stop()
 
+    }
+    @IBAction func intervalBellButton(_ sender: UIButton) {
+        let intervalVC = storyboard?.instantiateViewController(withIdentifier: "IntervalBellController") as! IntervalBellController
+        
+        intervalVC.modalPresentationStyle = .fullScreen
+        present(intervalVC, animated: true, completion: nil)
+        print("Interval Bell ")
+    }
+    
+    
+    @IBAction func ambientSoundButton(_ sender: UIButton){
+        let ambientVC = storyboard?.instantiateViewController(withIdentifier: "AmbientViewController") as! AmbientViewController
+    
+        ambientVC.modalPresentationStyle = .fullScreen
+        self.present(ambientVC, animated: true, completion: nil)
+        print("Ambient")
+    }
+    
 
     
 //MARK: - Duration/Modal
@@ -139,6 +157,7 @@ class MainScreenController: UIViewController{
         endingVC.modalPresentationStyle = .fullScreen
         
         present(endingVC, animated: true, completion: nil)
+       // player.stop()
         
     }
     
@@ -148,6 +167,7 @@ class MainScreenController: UIViewController{
             let destinationTDC = segue.destination as! StartScreenController
 
            
+            destinationTDC.playTheChosenSoundForStartingBell = chosenSoundForStartingBell
             destinationTDC.chosenSoundForEndingOfBell = soundChosenFromEndingBellController
             destinationTDC.hours = hours
             destinationTDC.minutes = minutes
@@ -244,7 +264,7 @@ extension MainScreenController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         chosenSoundForStartingBell = String(indexPath.row)
-         playSoundStartingBell(soundName: chosenSoundForStartingBell)
+         playSound(soundName: chosenSoundForStartingBell)
          print(chosenSoundForStartingBell)
         
         switch chosenSoundForStartingBell {
@@ -280,10 +300,10 @@ extension MainScreenController: UICollectionViewDelegate {
     }
 }
 //Music is created here
-var playerStartingBell: AVAudioPlayer!
-
-func playSoundStartingBell(soundName: String) {
-    let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
-    player = try! AVAudioPlayer(contentsOf: url!)
-    player.play()
-}
+//var playerStartingBell: AVAudioPlayer!
+//
+//func playSound(soundName: String) {
+//    let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
+//    player = try! AVAudioPlayer(contentsOf: url!)
+//    player.play()
+//}

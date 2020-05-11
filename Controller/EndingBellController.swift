@@ -60,8 +60,8 @@ class EndingBellController: UIViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     //If this is changed then you have to change the center point of the app "Current Index"
-//        behavior = MSCollectionViewPeekingBehavior(cellPeekWidth: 40)
-//        behavior = MSCollectionViewPeekingBehavior(cellSpacing: 30)
+      //  behavior = MSCollectionViewPeekingBehavior(cellPeekWidth: 50)
+        behavior = MSCollectionViewPeekingBehavior(cellSpacing: 80)
       
         collectionView.configureForPeekingBehavior(behavior: behavior)
         
@@ -107,7 +107,7 @@ class EndingBellController: UIViewController {
         default:
             //player.numberOfLoops = 1
             print("Player.NumberOfLoops Failed ")
-          
+
         }
         
     }
@@ -154,7 +154,7 @@ extension EndingBellController: UICollectionViewDataSource {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
 
         let currentIndex = self.collectionView.contentOffset.x / self.collectionView.frame.size.width
-        let indexPathNoDecimal = String(format: "%.0f", currentIndex * 1.1)
+        let indexPathNoDecimal = String(format: "%.0f", currentIndex * 1.4)
         
       //  chosenSound = indexPathNoDecimal
         playSound(soundName: indexPathNoDecimal)
@@ -200,7 +200,7 @@ extension EndingBellController: UICollectionViewDataSource {
 //        } else if repeatBellButtonThree != nil {
 //            player.numberOfLoops = 3
 //        }
-    
+//
     
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

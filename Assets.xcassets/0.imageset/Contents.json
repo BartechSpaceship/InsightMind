@@ -6,10 +6,12 @@
       "scale" : "1x"
     },
     {
+      "filename" : "BasuBell@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "BasuBell@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
