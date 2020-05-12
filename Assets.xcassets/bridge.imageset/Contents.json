@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "sebastian-sammer-vpKeMM9Kr8E-unsplash.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "sebastian-sammer-vpKeMM9Kr8E-unsplash@2x.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "sebastian-sammer-vpKeMM9Kr8E-unsplash@3x.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

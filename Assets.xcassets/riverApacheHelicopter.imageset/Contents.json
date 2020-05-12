@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "blake-richard-verdoorn-cssvEZacHvQ-unsplash.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "blake-richard-verdoorn-cssvEZacHvQ-unsplash@2x.jpg",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "blake-richard-verdoorn-cssvEZacHvQ-unsplash@3x.jpg",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

@@ -23,9 +23,11 @@ class MainScreenController: UIViewController{
     var seconds: Int = 0
     var soundChosenFromEndingBellController = ""
     var chosenSoundForStartingBell = ""
+    var ambientSound = "" 
     
     
     
+    @IBOutlet weak var ambientSoundAssistingLabel: UILabel!
     @IBOutlet weak var collectionViewStartingBell: UICollectionView!
     @IBOutlet weak var durationTimer: UILabel!
     @IBOutlet weak var endingBellAssistingLabel: UILabel!
@@ -134,6 +136,7 @@ class MainScreenController: UIViewController{
         let ambientVC = storyboard?.instantiateViewController(withIdentifier: "AmbientViewController") as! AmbientViewController
     
         ambientVC.modalPresentationStyle = .fullScreen
+        ambientVC.ambientSoundDelegate = self
         self.present(ambientVC, animated: true, completion: nil)
         print("Ambient")
     }
@@ -166,7 +169,7 @@ class MainScreenController: UIViewController{
         if segue.identifier == "beginSegue" {
             let destinationTDC = segue.destination as! StartScreenController
 
-           
+            destinationTDC.playAmbientSound = ambientSound
             destinationTDC.playTheChosenSoundForStartingBell = chosenSoundForStartingBell
             destinationTDC.chosenSoundForEndingOfBell = soundChosenFromEndingBellController
             destinationTDC.hours = hours
@@ -196,6 +199,14 @@ extension MainScreenController: EndingBellSoundSelection {
     
     
 }
+
+extension MainScreenController: AmbientSoundProtocol {
+    func didGetSound(soundName: String, soundChoice: String) {
+        ambientSoundAssistingLabel.text = soundName
+        ambientSound = soundChoice
+    }
+}
+
 extension MainScreenController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -299,11 +310,3 @@ extension MainScreenController: UICollectionViewDelegate {
        
     }
 }
-//Music is created here
-//var playerStartingBell: AVAudioPlayer!
-//
-//func playSound(soundName: String) {
-//    let url = Bundle.main.url(forResource: soundName, withExtension: "wav")
-//    player = try! AVAudioPlayer(contentsOf: url!)
-//    player.play()
-//}

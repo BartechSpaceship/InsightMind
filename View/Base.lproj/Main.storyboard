@@ -228,12 +228,20 @@
                                     <action selector="repeatBellButtonStarting:" destination="hY8-GU-V8K" eventType="touchUpInside" id="4F7-fU-7iC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RhV-dN-6s3">
+                                <rect key="frame" x="221" y="480" width="141" height="18"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647058823529" green="0.14117647058823529" blue="0.13725490196078433" alpha="1" colorSpace="calibratedRGB"/>
                         <viewLayoutGuide key="safeArea" id="lY8-yO-opD"/>
                     </view>
                     <navigationItem key="navigationItem" title="Timer" id="gIX-Dn-0q7"/>
                     <connections>
+                        <outlet property="ambientSoundAssistingLabel" destination="RhV-dN-6s3" id="vMH-2f-5Kp"/>
                         <outlet property="collectionViewStartingBell" destination="SOK-Pf-H0m" id="65m-a3-taz"/>
                         <outlet property="durationTimer" destination="1E6-nE-NUW" id="oM8-Mu-WJW"/>
                         <outlet property="endingBellAssistingLabel" destination="lXv-Db-wUL" id="0hO-uu-CP2"/>
@@ -345,9 +353,10 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sGT-2j-itJ">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="sGT-2j-itJ">
                                 <rect key="frame" x="0.0" y="132" width="414" height="730"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <sections/>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPm-i4-6Bq">
@@ -484,8 +493,8 @@
                                 <rect key="frame" x="82" y="48" width="250" height="61"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.5" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bell" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qjl-Cm-s25">
-                                        <rect key="frame" x="20" y="18.5" width="210" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <rect key="frame" x="20" y="12.5" width="210" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -573,6 +582,14 @@
                                 </items>
                                 <color key="barTintColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
+                            <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IeV-7n-tww">
+                                <rect key="frame" x="364" y="68" width="30" height="20"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="ellipsis" catalog="system"/>
+                                <connections>
+                                    <action selector="changeBellName:" destination="5ye-LI-jL7" eventType="touchUpInside" id="LkN-sX-uvo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14117647059999999" green="0.14117647059999999" blue="0.13725490200000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -581,8 +598,12 @@
                             <constraint firstItem="yaJ-fU-PYP" firstAttribute="top" secondItem="SzG-gp-jyW" secondAttribute="top" constant="111" id="6f2-og-Aqn"/>
                             <constraint firstItem="IMf-HP-Iwb" firstAttribute="leading" secondItem="aRS-Tn-qSQ" secondAttribute="leading" constant="119" id="B5P-eL-B1h"/>
                             <constraint firstItem="IMf-HP-Iwb" firstAttribute="top" secondItem="yaJ-fU-PYP" secondAttribute="bottom" constant="8" id="CwT-8e-13Z"/>
+                            <constraint firstItem="yaJ-fU-PYP" firstAttribute="top" secondItem="IeV-7n-tww" secondAttribute="bottom" constant="23" id="DSq-mz-rdv"/>
+                            <constraint firstItem="IeV-7n-tww" firstAttribute="leading" secondItem="hT3-Vd-Vc1" secondAttribute="trailing" constant="32" id="FcC-QW-xME"/>
+                            <constraint firstItem="IeV-7n-tww" firstAttribute="top" secondItem="aRS-Tn-qSQ" secondAttribute="top" constant="24" id="K94-Qk-D69"/>
                             <constraint firstItem="yaJ-fU-PYP" firstAttribute="top" secondItem="hT3-Vd-Vc1" secondAttribute="bottom" constant="2" id="KHb-1f-QJf"/>
                             <constraint firstItem="IMf-HP-Iwb" firstAttribute="bottom" secondItem="sZn-dj-A1p" secondAttribute="bottom" constant="-314" id="NiL-pq-B6K"/>
+                            <constraint firstItem="aRS-Tn-qSQ" firstAttribute="trailing" secondItem="IeV-7n-tww" secondAttribute="trailing" constant="20" id="Sp9-GB-VDu"/>
                             <constraint firstItem="hT3-Vd-Vc1" firstAttribute="top" secondItem="aRS-Tn-qSQ" secondAttribute="top" constant="4" id="TM4-Su-eJb"/>
                             <constraint firstItem="sZn-dj-A1p" firstAttribute="top" secondItem="IMf-HP-Iwb" secondAttribute="top" constant="68" id="Tec-Hf-Sz2"/>
                             <constraint firstItem="hT3-Vd-Vc1" firstAttribute="leading" secondItem="aRS-Tn-qSQ" secondAttribute="leading" constant="82" id="Wuh-ob-sSJ"/>
@@ -669,8 +690,8 @@
                                     <outlet property="delegate" destination="DlH-8s-JJO" id="8Tf-TP-JWd"/>
                                 </connections>
                             </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Bm-sZ-epG">
-                                <rect key="frame" x="177" y="100" width="61" height="56"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2Bm-sZ-epG">
+                                <rect key="frame" x="32" y="100" width="351" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -694,12 +715,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="Dej-az-nW7"/>
                     <connections>
+                        <outlet property="ambientLabel" destination="2Bm-sZ-epG" id="RF9-in-E5O"/>
                         <outlet property="collectionView" destination="Utz-4f-6Np" id="rhj-P9-2v0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Opq-Xs-DSG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470" y="325"/>
+            <point key="canvasLocation" x="469.56521739130437" y="324.77678571428572"/>
         </scene>
         <!--Ending Bell Controller-->
         <scene sceneID="Fhx-qE-dI8">

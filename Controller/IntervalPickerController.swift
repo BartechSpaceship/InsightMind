@@ -79,6 +79,10 @@ class IntervalPickerController: UIViewController {
     @IBAction func saveButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: nil)
     }
+    @IBAction func changeBellName(_ sender: UIButton) {
+        
+    }
+    
     @IBAction func repeatBellButton(_ sender: UIButton) {
         let circle = UIImage(systemName: "circle")
                

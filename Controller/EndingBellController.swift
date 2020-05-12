@@ -156,7 +156,7 @@ extension EndingBellController: UICollectionViewDataSource {
         let currentIndex = self.collectionView.contentOffset.x / self.collectionView.frame.size.width
         let indexPathNoDecimal = String(format: "%.0f", currentIndex * 1.4)
         
-      //  chosenSound = indexPathNoDecimal
+      
         playSound(soundName: indexPathNoDecimal)
         print(indexPathNoDecimal)
         
@@ -192,16 +192,7 @@ extension EndingBellController: UICollectionViewDataSource {
         default:
             playSound(soundName: "0")
         }
-//
-//        if chosenSound != nil {
-//            player.numberOfLoops = 1
-//        } else if repeatBellButtonTwo != nil {
-//            player.numberOfLoops = 2
-//        } else if repeatBellButtonThree != nil {
-//            player.numberOfLoops = 3
-//        }
-//
-    
+
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
