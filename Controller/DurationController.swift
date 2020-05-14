@@ -57,13 +57,6 @@ class DurationController: UIViewController{
    
     
 }
-func convertingSecondsToCountDown(time: TimeInterval) -> String {
-    let h = Int(time) / 3600
-    let m = Int(time) / 60 % 60
-    let s = Int(time) % 60
-    return String(format: "%02i:%02i:%02i", h,m,s )
-}
-
     
 
 

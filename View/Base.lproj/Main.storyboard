@@ -357,6 +357,66 @@
                                 <rect key="frame" x="0.0" y="132" width="414" height="730"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BellCell" rowHeight="63" id="yhJ-WP-gtr" customClass="TableViewCell" customModule="InsightMind" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="63"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yhJ-WP-gtr" id="mF0-el-cV3">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="63"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="0" translatesAutoresizingMaskIntoConstraints="NO" id="DK1-8A-dga">
+                                                    <rect key="frame" x="14" y="8" width="91" height="47"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basu - Bell1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1pn-Bj-c4Y">
+                                                    <rect key="frame" x="113" y="14" width="67" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basu - Bell1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bLI-93-5Ou">
+                                                    <rect key="frame" x="113" y="31" width="76" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laT-w9-Y67">
+                                                    <rect key="frame" x="323" y="21" width="71" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="71" id="cp2-Ty-tX4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="laT-w9-Y67" secondAttribute="trailing" id="01c-zd-iX1"/>
+                                                <constraint firstItem="DK1-8A-dga" firstAttribute="leading" secondItem="mF0-el-cV3" secondAttribute="leading" constant="14" id="7FQ-i9-yct"/>
+                                                <constraint firstItem="laT-w9-Y67" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="1pn-Bj-c4Y" secondAttribute="trailing" constant="8" symbolic="YES" id="DDN-MW-ywY"/>
+                                                <constraint firstItem="1pn-Bj-c4Y" firstAttribute="leading" secondItem="DK1-8A-dga" secondAttribute="trailing" constant="8" id="GcG-Mu-MM3"/>
+                                                <constraint firstItem="bLI-93-5Ou" firstAttribute="top" secondItem="mF0-el-cV3" secondAttribute="topMargin" constant="20" id="MxF-9u-5H5"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="laT-w9-Y67" secondAttribute="bottom" constant="10" id="XTD-ai-s1U"/>
+                                                <constraint firstItem="laT-w9-Y67" firstAttribute="top" secondItem="mF0-el-cV3" secondAttribute="topMargin" constant="10" id="ZR8-iw-lUG"/>
+                                                <constraint firstAttribute="bottom" secondItem="DK1-8A-dga" secondAttribute="bottom" constant="8" id="czw-aW-n9q"/>
+                                                <constraint firstItem="DK1-8A-dga" firstAttribute="top" secondItem="mF0-el-cV3" secondAttribute="top" constant="8" id="gXc-Lt-Jf2"/>
+                                                <constraint firstItem="1pn-Bj-c4Y" firstAttribute="top" secondItem="mF0-el-cV3" secondAttribute="topMargin" constant="3" id="gs8-ye-IvJ"/>
+                                                <constraint firstItem="bLI-93-5Ou" firstAttribute="leading" secondItem="DK1-8A-dga" secondAttribute="trailing" constant="8" id="ppz-p2-wPN"/>
+                                                <constraint firstAttribute="trailing" secondItem="DK1-8A-dga" secondAttribute="trailing" constant="309" id="pyz-bC-qOb"/>
+                                                <constraint firstItem="laT-w9-Y67" firstAttribute="leading" secondItem="bLI-93-5Ou" secondAttribute="trailing" constant="134" id="qF0-Nq-kea"/>
+                                                <constraint firstItem="bLI-93-5Ou" firstAttribute="bottom" secondItem="mF0-el-cV3" secondAttribute="bottomMargin" id="tYE-7F-gxg"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="1pn-Bj-c4Y" secondAttribute="bottom" constant="17" id="w3j-Xe-xzH"/>
+                                                <constraint firstItem="laT-w9-Y67" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="bLI-93-5Ou" secondAttribute="trailing" constant="8" symbolic="YES" id="wrJ-Dz-Fxe"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="chosenBellName" destination="1pn-Bj-c4Y" id="god-zx-0WQ"/>
+                                            <outlet property="intervalPickedTime" destination="laT-w9-Y67" id="nZq-as-59T"/>
+                                            <outlet property="supportingBellName" destination="bLI-93-5Ou" id="qom-lP-1wn"/>
+                                            <outlet property="tableViewImage" destination="DK1-8A-dga" id="KIW-fA-MOA"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <sections/>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sPm-i4-6Bq">
@@ -417,11 +477,12 @@
                     <connections>
                         <outlet property="editButtonEditable" destination="lR4-IL-HG2" id="K0c-8L-Te7"/>
                         <outlet property="settingsButtonEditable" destination="AHe-Kk-07B" id="b1L-Ur-U0U"/>
+                        <outlet property="tableView" destination="sGT-2j-itJ" id="l6f-Zo-OtB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nEY-zi-pip" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="470" y="-488"/>
+            <point key="canvasLocation" x="469.56521739130437" y="-488.16964285714283"/>
         </scene>
         <!--Interval Picker Controller-->
         <scene sceneID="Nh3-kq-9Gh">
