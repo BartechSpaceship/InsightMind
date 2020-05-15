@@ -12,7 +12,9 @@ import MSPeekCollectionViewDelegateImplementation
 //I am going to have to do all the data conversion here and then when clicked save the tableViewCell will be created
 
 protocol moveDataToIntervalPickerProtocol {//Will add bell repetitions in the future and bell name
-    func bellsCreated(bell: TimeData)
+    func didMoveIntervalDataPractise(bellImage: String, totalTime: String, bellName: String, supportingBellName: String)
+    func didMoveIntervalData(bellInfo: TimeData)
+    
 }
 //The Cell will be created inside of this controller but will populate the data using a delegate inside of the Bell Controller
 class IntervalPickerController: UIViewController {
@@ -85,32 +87,40 @@ class IntervalPickerController: UIViewController {
     
     @IBAction func saveButton(_ sender: UIBarButtonItem) {//How to get image into IntervalBellController? HMMM
         
-        if (hours != 0 || minutes != 0 || seconds != 0) {
+        
             finalSeconds = (hours * hrs) + (minutes * min) + (seconds + 3600) % sec
             //I will create the imageitself here but it needs to populate in the other view controller
 //            images = createArray()
-            var tempImages: [TimeData] = []
-            let image1 = TimeData(bellImage: UIImage(named: chosenSound) ?? UIImage(named: "4")!, totalTime: convertingSecondsToCountDown(time: TimeInterval(finalSeconds)), bellName: "Basu-Bell 1", supportingBellName: "Basu 3 Strikes")
-            intervalDataManagerDelegate?.bellsCreated(bell: image1)
-        } else {
-            print("FAILTHAURE")
-        }
+//            intervalDataManagerDelegate?.didMoveIntervalData(bellImage: "", totalTime: convertingSecondsToCountDown(time: TimeInterval(finalSeconds)), bellName: "Penelope", supportingBellName: "Cruz")
+        intervalDataManagerDelegate?.didMoveIntervalDataPractise(bellImage: chosenSound, totalTime: convertingSecondsToCountDown(time: TimeInterval(finalSeconds)), bellName: "Spaceman", supportingBellName: "Yup")
+            let bell = TimeData(bellImage: UIImage(named: chosenSound)!, totalTime: convertingSecondsToCountDown(time: TimeInterval(finalSeconds)), bellName: "Ostrich", supportingBellName: "Pen")
+            intervalDataManagerDelegate?.didMoveIntervalData(bellInfo: bell)
+            
+            
+//            let image1 = TimeData(bellImage: UIImage(named: chosenSound) ?? UIImage(named: "4")!, totalTime: convertingSecondsToCountDown(time: TimeInterval(finalSeconds)), bellName: "Basu-Bell 1", supportingBellName: "Basu 3 Strikes")
+            
+        
+        
 
         self.dismiss(animated: true, completion: nil)
     }
-//    func createArray() -> [TimeData] {
-//             var tempImages: [TimeData] = []
-//
-//        let image1 = TimeData(bellImage: UIImage(named: chosenSound) ?? UIImage(named: "4")!, totalTime: convertingSecondsToCountDown(time: TimeInterval(finalSeconds)), bellName: "Basu-Bell 1", supportingBellName: "Basu 3 Strikes")
-//
-//             tempImages.append(image1)
-//
-//          return tempImages
-//      }
+
 
     @IBAction func changeBellName(_ sender: UIButton) {
         
     }
+    func convertingSecondsToCountDown(time: TimeInterval) -> String {
+        let h = Int(time) / 3600
+        let m = Int(time) / 60 % 60
+        let s = Int(time) % 60
+        return String(format: "%02i:%02i:%02i", h,m,s )
+    }
+    
+    
+    
+    
+    
+    
     //MARK: - 1,2,3 Buttons
     @IBAction func repeatBellButton(_ sender: UIButton) {
         let circle = UIImage(systemName: "circle")

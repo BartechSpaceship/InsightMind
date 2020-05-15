@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TimeData {
+struct TimeData {
     var bellImage: UIImage
     var totalTime: String
     var bellName: String

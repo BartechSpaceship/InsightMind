@@ -26,11 +26,11 @@ class TableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    func setCell(timeData: TimeData ){
-        tableViewImage.image = timeData.bellImage
-        chosenBellName.text = timeData.bellName
-        supportingBellName.text = timeData.supportingBellName
-        intervalPickedTime.text = timeData.totalTime
-    }
+//    func setCell(timeData: TimeData ){
+//        tableViewImage.image = timeData.bellImage
+//        chosenBellName.text = timeData.bellName
+//        supportingBellName.text = timeData.supportingBellName
+//        intervalPickedTime.text = timeData.totalTime
+//    }
 
 }
